@@ -1,0 +1,24 @@
+<%= render 'shared/errors', obj: @hotel %>
+
+<div class="row">
+	<div class="well col-md-8 col-md-offset-2">
+		<%= form_for(@hotel, html: { multipart: true }) do |f| %>   <!-- for add image -(@recipe, html: { multipart: true}) -->
+		
+		    <%= f.label :name %>
+		    <%= f.text_field :name %>
+        
+        <%= f.label :summary %>
+        <%= f.text_field :summary %> 
+
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 10 %>
+
+        <span class="picture">
+            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>    <!-- for image -->
+        </span>
+
+        <%= f.submit(@hotel.new_record? ? 'Create Hotel' : 'Edit Hotel', class: "btn btn-success") %>
+     <% end %>    
+	</div>
+</div>
+

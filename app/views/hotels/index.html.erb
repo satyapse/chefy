@@ -1,0 +1,32 @@
+<%= render 'shared/page_title', title: "PURI" %>
+
+<ul class="nav nav-tabs">
+  <li > <%= link_to "Temples", recipes_path %> </li>
+          <li class="active"><%= link_to "Hotels & Eateries", hotels_path %></li>
+          <li><%= link_to "Hospitals", cheffs_path %></li>
+          <li><%= link_to "ATM", cheffs_path %></li>
+</ul>
+
+
+<% @hotels.each do |hotel| %>
+    <div class="row">
+  	 
+    
+    <div class="col-lg-6 well">
+    	<h4><%= link_to hotel.name, hotel_path(hotel) %></h4>
+      <p><%= hotel.summary %></p>
+      <p>
+        <span class='quiet'><small> created: <%= time_ago_in_words(hotel.created_at)%> ago,</small></span>
+        <span class='quiet'><small> updated: <%= time_ago_in_words(hotel.updated_at)%> ago,</small></span>
+       </p>
+       
+    </div> 
+
+    <div class="col-md-4">
+       <%= image_tag(hotel.picture.url, size: "250*150", class: "gravatar") if hotel.picture? %>   <!-- addition of imagetag -->
+    </div>
+
+  </div>
+  <hr/>
+
+<% end %>

@@ -1,0 +1,25 @@
+
+<%= render 'shared/page_title', title: @hotel.name %>
+<div class="row">
+	   
+	<div class="col-md-8">
+	  <% if logged_in? and @hotel.cheff == current_user %>
+	    <%= link_to "Edit this Recipe", edit_hotel_path(@hotel), class: "btn btn-success pull-right" %>
+	  <% end %>
+	  <h3><%= @hotel.summary %></h3>
+	  <div class="show_recipe">
+	  	 <%= image_tag(@hotel.picture.url, class: "gravatar") if @hotel.picture? %>  <!-- addition of imagetag -->
+	  </div>
+	   <div class="well">
+	   	  <p>
+	   	  <strong>Steps:</strong>
+	   	  </p>
+	   	  <%= simple_format(@hotel.description) %>
+
+	   	  
+
+	   </div>
+	 </div>
+</div>
+
+<h5><%= link_to "Return to Recipes Listing", hotels_path, class: "btn btn-warning btn-small" %></h5>
