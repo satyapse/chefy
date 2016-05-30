@@ -2,9 +2,9 @@
 	CarrierWave.configure do |config|
 		config.fog_credentials = {
 			:provider => 'AWS',
-			:aws_access_key_id => 'AKIAI27UBLCH2HFBHI4A',
-			:aws_secret_access_key => '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'
+			:aws_access_key_id => '',
+			:aws_secret_access_key => ''
 		}
-		config.fog_directory = 'satyarailsimages'
+		config.fog_directory = ''
 	end
 # end
